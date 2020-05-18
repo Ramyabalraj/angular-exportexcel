@@ -236,11 +236,11 @@ export class AppComponent {
      var mon;
      var datee;
 
-this.excel2[0]=(this.result.map(x => x.response[22910].AssociateDetail.associate_code));
-this.excel2[0]=(this.result.map(x => x.response[22910].AssociateDetail.associate_name));
-this.excel2[0]=(this.result.map(x => x.response[22910].AssociateDetail.email));
-this.excel2[0]=(this.result.map(x => x.response[22910].AssociateDetail.title));
-this.excel2[0]=(this.result.map(x => x.response[22910].AssociateDetail.department));
+this.excel2.push(this.result.map(x => x.response[22910].AssociateDetail.associate_code));
+this.excel2.push(this.result.map(x => x.response[22910].AssociateDetail.associate_name));
+this.excel2.push(this.result.map(x => x.response[22910].AssociateDetail.email));
+this.excel2.push(this.result.map(x => x.response[22910].AssociateDetail.title));
+this.excel2.push(this.result.map(x => x.response[22910].AssociateDetail.department));
 this.excel2.forEach(x=>console.log("excel"+x));
 
  
