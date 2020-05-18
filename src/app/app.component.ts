@@ -229,7 +229,7 @@ export class AppComponent {
  // products: any = (employee as any).default;
   generateExcel() {
     
-    this.result.push("vaxjg"+this.json);
+    this.result.push(this.json);
     console.log(this.result);
     var month = this.fdate.getMonth();
     var dateee = this.fdate.getDate();
