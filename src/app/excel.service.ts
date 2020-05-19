@@ -7,10 +7,10 @@ export class ExcelService {
   constructor(private datePipe: DatePipe) {}
   generateExcel(exceldata, exceldata2) {
     //Excel Title, Header, Data
-    const title = "Employee";
+    const title = "KGISL - GSS : Employee Details";
     const header = ["Associate_Details"];
     const header2 = ["S.No", "Date", "InTime", "OutTime", "Holiday"];
-    const data = exceldata;
+    data: [] = exceldata;
     const data2 = exceldata2;
 
     //Create workbook and worksheet
@@ -49,9 +49,16 @@ export class ExcelService {
       };
     });
 
-    data.forEach(d => {
-      worksheet.addRow(d);
-    });
+    // data.forEach(d => {
+    //   worksheet.addRow(d);
+    // });
+
+    worksheet.addRow("Associate_code" + ":" + this.data[0]);
+    worksheet.addRow("Associate_name" + ":" + this.data[1]);
+    worksheet.addRow("Email" + ":" + this.data[2]);
+    worksheet.addRow("Title" + ":" + this.data[3]);
+    worksheet.addRow("Department" + ":" + this.data[4]);
+
     //Blank Row
     worksheet.addRow([]);
     worksheet.addRow([]);
@@ -63,8 +70,8 @@ export class ExcelService {
       cell.fill = {
         type: "pattern",
         pattern: "solid",
-        fgColor: { argb: "FFFFFF00" },
-        bgColor: { argb: "FF0000FF" }
+        fgColor: { argb: "#111111" },
+        bgColor: { argb: "#0000FF" }
       };
       cell.border = {
         top: { style: "thin" },
@@ -105,7 +112,7 @@ export class ExcelService {
         type:
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
       });
-      fs.saveAs(blob, "myexcel.xlsx");
+      fs.saveAs(blob, "mycolorexcel.xlsx");
     });
   }
 }

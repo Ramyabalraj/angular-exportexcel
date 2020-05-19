@@ -1,4 +1,5 @@
-{
+export class employee{
+json = {
     status: 200,
     message: "Records Found",
     response: {
@@ -199,3 +200,5 @@
       }
     }
   };
+}
+  
